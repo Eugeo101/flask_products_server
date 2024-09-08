@@ -1,0 +1,17 @@
+{% extends "layout.html"%}
+
+{% block title %}
+Products Page
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center" style="color: gray;">Products of ITI</h1>
+    <div class="card" style="width: 18rem;">
+        <img src="{{product.get_obj_img_url}}" class="card-img-top" alt="product image">
+        <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <a href="{{product.get_route_of_obj}}" class="btn btn-primary">Show</a>
+        </div>
+    </div>
+{% endblock %}

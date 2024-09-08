@@ -1,0 +1,32 @@
+{% extends "layout.html"%}
+
+{% block title %}
+Products Page
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center" style="color: gray;">Add Product for ITI</h1>
+{% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+{% endwith %}
+<form class="row g-3" action="#" method="post" style="margin-left: 20px;">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Product Name</label>
+      <input type="text" class="form-control" id="inputEmail4" name="p_name">
+    </div>
+    <div class="col-md-4">
+      <label for="inputPassword4" class="form-label">Image File Name</label>
+      <input type="text" class="form-control" id="inputAddress" name="img_file">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Description</label>
+        <textarea class="form-control" id="floatingTextarea" name="desc"></textarea>
+
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Add Item</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html"%}
+
+{% block title %}
+Products Page
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center" style="color: gray;">Products of ITI</h1>
+<a href="{{url_for('products.add_product')}}" class="btn btn-dark" style="margin: 20px; width: 200px; font-weight: bold;">Add Product</a>
+{% if products%}
+    <div class="d-flex gap-3 flex-row flex-wrap">
+        {% for product in products %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{product.get_obj_img_url}}" class="card-img-top" alt="product image">
+            <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <a href="{{product.get_route_of_obj}}" class="btn btn-primary">Show</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+        <div class="container">
+            <p class="text-center">There is no products added yet!!</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <img src="{{url_for('products.static', filename='no_items.png')}}" alt="" style="width: 50px; height: 30px;">
+        </div>
+{% endif %}
+{% endblock %}
